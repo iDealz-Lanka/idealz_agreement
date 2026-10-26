@@ -23,7 +23,8 @@
     .summary-label{color:#7a96b4;min-width:140px;font-size:12px}
     .summary-value{color:#1a1a2e;font-weight:500;flex:1}
     .terms-box{background:#f7faff;border:1px solid #dde6f5;border-radius:12px;padding:16px 18px;margin-bottom:18px}
-    .terms-box ul{padding-left:16px;font-size:13px;color:#4a5e78;line-height:1.85}
+    .terms-box ol{padding-left:20px;font-size:13px;color:#4a5e78;line-height:1.85}
+    .terms-box ol li{margin-bottom:6px}
     .sig-wrap{position:relative;border:2px dashed #c8d8ec;border-radius:12px;background:#f8fbff;overflow:hidden;cursor:crosshair;transition:border-color .15s;margin-bottom:6px}
     .sig-wrap:hover{border-color:#1565C0}
     .sig-wrap.err{border-color:#e53935}
@@ -58,17 +59,19 @@
       <div class="summary-box" id="summary-box"></div>
       <div class="section-title">Terms &amp; conditions</div>
       <div class="terms-box">
-        <ul>
-          <li>All content must be original and tag iDealz official social media accounts in every published post.</li>
-          <li>iDealz Lanka Pvt Ltd reserves the right to reuse, repost, and promote all content for advertising without additional payment.</li>
-          <li id="term3"></li>
-          <li>All content must maintain a professional and positive brand image of iDealz at all times.</li>
-          <li>Compensation will be released after successful publication of all agreed deliverables.</li>
-          <li>Either party may terminate with prior written notice. iDealz may terminate immediately for breach of terms.</li>
-          <li>This agreement does not create an employment relationship. The influencer acts as an independent partner.</li>
-          <li>Confidential business information must not be disclosed to any third party.</li>
-          <li>Any disputes will be resolved mutually and in good faith between both parties.</li>
-        </ul>
+        <ol>
+          <li>All content must be original and tag iDealz's official social media accounts in every post.</li>
+          <li>iDealz Lanka Pvt Ltd may reuse and promote all agreed content for advertising without additional payment.</li>
+          <li>The Creator shall not promote competing smartphone brands during the campaign period.</li>
+          <li>The Creator shall maintain a professional and positive image of iDealz in all content and activities related to this collaboration.</li>
+          <li>Compensation will be released after confirmed publication of all agreed deliverables.</li>
+          <li>Either party may terminate this agreement with prior written notice. iDealz may terminate immediately in the event of a breach.</li>
+          <li>This agreement does not create an employment relationship.</li>
+          <li>Confidential business information must not be shared with any third party.</li>
+          <li>Any disputes shall first be addressed through mutual discussion and in good faith by both parties.</li>
+          <li id="term10"></li>
+          <li>All content published under this collaboration must remain publicly visible on every platform where it was posted throughout the exclusivity period stated in Clause 10. The Creator shall not delete, hide, archive, make private, or otherwise restrict access to such content without prior written approval from iDealz Lanka Pvt Ltd. Stories may expire naturally after their standard duration.</li>
+        </ol>
       </div>
       <div class="section-title">Your signature</div>
       <p style="font-size:13px;color:#6b8cae;margin-bottom:12px;line-height:1.6">By signing below, you confirm you have read and agree to all terms of this collaboration agreement.</p>
@@ -111,10 +114,10 @@
     if(encoded) D = JSON.parse(decodeURIComponent(escape(atob(encoded))));
   } catch(e){ D=null; }
 
-  // Populate term 3 with dynamic campaign end date
-  const term3El = document.getElementById("term3");
-  const effectiveDate = (D && D.ed) ? D.ed : "[campaign end date]";
-  term3El.innerHTML = `The Creator agrees to remain exclusive to iDealz in the mobile retail category from <strong>${effectiveDate}</strong> until their next device upgrade provided by iDealz, subject to a maximum period of twelve (12) months. During this period, the Creator shall not promote, endorse, advertise, or participate in paid or unpaid promotional collaborations with any other mobile phone retailer without prior written approval from iDealz Lanka Pvt Ltd.`;
+  // Populate term 10 with dynamic start date
+  const term10El = document.getElementById("term10");
+  const startDate = (D && D.sd) ? D.sd : "[campaign start date]";
+  term10El.innerHTML = `The Creator agrees to remain exclusive to iDealz in the mobile retail category until their next device upgrade provided by iDealz, or twelve (12) months from <strong>${startDate}</strong>, whichever occurs first. During this period, the Creator shall not promote, endorse, advertise, or participate in paid or unpaid promotional collaborations with any other mobile phone retailer without prior written approval from iDealz Lanka Pvt Ltd.`;
 
   if(!D){
     document.getElementById("main-content").style.display="none";
